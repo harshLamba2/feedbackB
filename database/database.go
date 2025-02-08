@@ -25,10 +25,10 @@ func InitDb() *gorm.DB {
 		return nil
 	}
 
-	// err = performMigrations()
-	// if err != nil {
-	// 	log.Fatalf("Could not perform migrations: %v", err)
-	// }
+	err = performMigrations()
+	if err != nil {
+		log.Fatalf("Could not perform migrations: %v", err)
+	}
 
 	return dataBaseInstance
 }
