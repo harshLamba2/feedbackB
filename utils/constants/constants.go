@@ -1,0 +1,70 @@
+package constants
+
+const (
+	RootUser string = "lambaharsh01@gmail.com"
+)
+
+const (
+	SignIn string = "/sign-in"
+	Me     string = "/me"
+
+	InitForgotPassword string = "/forgot-password"
+
+	InitSignUp  string = "/initial-sign-up"
+	CheckOTP    string = "/check-otp"
+	SetPassword string = "/set-password"
+
+	AddTicket     string = "/add-ticket"
+	SaveBusColors string = "/save-bus-colors"
+
+	SaveBusInitials string = "/save-bus-initials"
+	SaveBusStops    string = "/save-bus-stops"
+	SaveBusRoutes   string = "/save-bus-routes"
+
+	ExecuteSelectQuery string = "/execute-select-query"
+
+	GetAllUsers      string = "/get-all-users"
+	PermissionAccess string = "/permission-access"
+)
+
+const (
+	OtpValidityMinuets             int = 3
+	PasswordChangeValidTillMinuets int = 10
+)
+
+const (
+	InvalidRequestParameters string = "Invalid Request Parameters"
+	AttemptsBlockTime        int    = 30
+	AttemptsAllowed          int    = 5
+)
+
+const OtpHtmlDesign string = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; text-align: center; background-color: #f5f5f5; height: 86vh;">
+
+  <div style="padding: 20px; font-size: 10px; font-weight: 500; background-color: #355ba6; color: white;">
+    Your One-Time Password (OTP) for Charter Authentication is:
+	<br/>
+	<span style="font-size: 8px; font-weight: 400;">(If you did not request this process, please disregard this message)</span>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+      <span style="font-size: 40px; font-weight: 600; color: #355ba6; margin-top:80px">
+	  %s
+	  </span>
+	  <br/>
+	  <br/>
+</body>
+</html>
+`

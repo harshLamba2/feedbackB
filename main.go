@@ -10,10 +10,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 
-	"github.com/lambaharsh01/busTicketingBackend/database"
-	"github.com/lambaharsh01/busTicketingBackend/middleware"
-	"github.com/lambaharsh01/busTicketingBackend/routes"
-	"github.com/lambaharsh01/busTicketingBackend/utils"
+	"github.com/harshLamba2/feedbackF/database"
+	"github.com/harshLamba2/feedbackF/middleware"
+	"github.com/harshLamba2/feedbackF/routes"
+	"github.com/harshLamba2/feedbackF/utils"
 )
 
 func main() {
