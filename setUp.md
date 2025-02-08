@@ -1,6 +1,7 @@
 RUN 
-1. go mod tidy
-2. go run main.go
+1. go mod init github.com/repo-name
+2. go mod tidy
+3. go run main.go
 
 SETUP 
 1. go mod init MODULE_NAME

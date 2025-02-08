@@ -74,18 +74,6 @@ func main() {
 	meGroup.Use(middleware.AuthenticationHandler())
 	routes.MeRoutes(meGroup, dbInstance)
 
-	adminPanelGroup := apiGroup.Group("/admin")
-	adminPanelGroup.Use(middleware.AuthenticationHandler())
-	routes.AdminPanelRoutes(adminPanelGroup, dbInstance)
-
-	ticketingGroup := apiGroup.Group("/ticketing")
-	ticketingGroup.Use(middleware.AuthenticationHandler())
-	routes.TicketRoutes(ticketingGroup, dbInstance)
-
-	analyticsGroup := apiGroup.Group("/analytics")
-	analyticsGroup.Use(middleware.AuthenticationHandler())
-	routes.AnalyticsRoutes(analyticsGroup, dbInstance)
-
 	router.Run(":" + port)
 
 }
