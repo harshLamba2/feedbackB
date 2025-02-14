@@ -5,29 +5,6 @@ const (
 )
 
 const (
-	SignIn string = "/sign-in"
-	Me     string = "/me"
-
-	InitForgotPassword string = "/forgot-password"
-
-	InitSignUp  string = "/initial-sign-up"
-	CheckOTP    string = "/check-otp"
-	SetPassword string = "/set-password"
-
-	AddTicket     string = "/add-ticket"
-	SaveBusColors string = "/save-bus-colors"
-
-	SaveBusInitials string = "/save-bus-initials"
-	SaveBusStops    string = "/save-bus-stops"
-	SaveBusRoutes   string = "/save-bus-routes"
-
-	ExecuteSelectQuery string = "/execute-select-query"
-
-	GetAllUsers      string = "/get-all-users"
-	PermissionAccess string = "/permission-access"
-)
-
-const (
 	OtpValidityMinuets             int = 3
 	PasswordChangeValidTillMinuets int = 10
 )
@@ -36,6 +13,20 @@ const (
 	InvalidRequestParameters string = "Invalid Request Parameters"
 	AttemptsBlockTime        int    = 30
 	AttemptsAllowed          int    = 5
+)
+
+const (
+	SignIn string = "/sign-in"
+	Me     string = "/me"
+
+	InitForgotPassword string = "/forgot-password"
+
+	InitSignUp       string = "/initial-sign-up"
+	CheckOTP         string = "/check-otp"
+	SetPassword      string = "/set-password"
+	GetQuestionTypes string = "/get-question-types"
+	GetFileTypes     string = "/get-file-types"
+	
 )
 
 const OtpHtmlDesign string = `

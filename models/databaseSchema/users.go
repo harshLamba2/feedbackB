@@ -3,7 +3,7 @@ package databaseSchema
 import "time"
 
 type Users struct {
-	ID          			uint   	  `json:"id" gorm:"primarykey;autoIncrement"`
+	Id          			uint   	  `json:"id" gorm:"primarykey;autoIncrement"`
 	Name        			string 	  `json:"name" gorm:"type:varchar(100);not null"`
 	Email       			string 	  `json:"email" gorm:"unique;type:varchar(100);not null"`
 	PhoneNumber 			string 	  `json:"phone" gorm:"type:varchar(15);not null"`

@@ -74,6 +74,10 @@ func main() {
 	meGroup.Use(middleware.AuthenticationHandler())
 	routes.MeRoutes(meGroup, dbInstance)
 
+	fetchGroup := apiGroup.Group("/fetch")
+	fetchGroup.Use(middleware.AuthenticationHandler())
+	routes.FetchRoutes(fetchGroup, dbInstance)
+
 	router.Run(":" + port)
 
 }

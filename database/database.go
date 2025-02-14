@@ -25,9 +25,12 @@ func InitDb() *gorm.DB {
 		return nil
 	}
 
-	err = performMigrations()
-	if err != nil {
+	if err := performMigrations(); err != nil {
 		log.Fatalf("Could not perform migrations: %v", err)
+	}
+	
+	if err:= MigrateWithDefaultData(); err!=nil {
+		log.Fatalf("Could not migrate with default data: %v", err)
 	}
 
 	return dataBaseInstance
@@ -71,8 +74,40 @@ func connectDB() (*gorm.DB, error) {
 func performMigrations() error {
 	err := dataBaseInstance.AutoMigrate(
 		&databaseSchema.Users{},
+		&databaseSchema.QuestionType{},
+		&databaseSchema.FileType{},
+		&databaseSchema.FormSchema{},
+		&databaseSchema.QuestionSchema{},
 	)
 	return err
+}
+
+
+func MigrateWithDefaultData() error {
+
+
+	transaction := dataBaseInstance.Begin()
+
+	defer func() {
+		if recover := recover(); recover != nil {
+			transaction.Rollback()
+		}
+	}()
+
+	transaction.Exec("DELETE FROM file_types WHERE 1=1")
+	if err := transaction.Create(&databaseSchema.DefaultFileTypes).Error; err != nil {
+		transaction.Rollback()
+		return err
+	}
+	
+	transaction.Exec("DELETE FROM question_types WHERE 1=1")
+	if err := transaction.Create(&databaseSchema.DefaultQuestionTypes).Error; err != nil {
+		transaction.Rollback()
+		return err
+	}
+
+	return transaction.Commit().Error
+	
 }
 
 func CloseDB() {
@@ -85,14 +120,3 @@ func CloseDB() {
 		log.Printf("Error closing database connection pool: %v", err)
 	}
 }
-
-// SQL ERRORS
-
-// Record not found
-// result := db.First(&employee, "email_id = ?", "example@example.com")
-// if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-//     fmt.Println("Record not found")
-// } else if result.Error != nil {
-//     // Handle other potential errors
-//     fmt.Println("Error:", result.Error)
-// }
